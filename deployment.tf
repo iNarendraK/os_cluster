@@ -1,21 +1,3 @@
-resource "openshift_project" "openshift-demo" {
-  metadata {
-    annotations = {
-      "openshift.io/description" = "This is just for demo purpose"
-      "openshift.io/display-name" = "openshift-demo-cluster"
-    }
-
-    name = var.project_name
-  }
-
-  lifecycle {
-    ignore_changes = [metadata[0].annotations]
-  }
-}
-
-root@minikube:/home/ubuntu/narendra# ^C
-root@minikube:/home/ubuntu/narendra# vi resources.tf
-root@minikube:/home/ubuntu/narendra# cat resources.tf
 resource "openshift_deployment_config" "openshiftapp" {
   metadata {
     name = var.deployment_name
